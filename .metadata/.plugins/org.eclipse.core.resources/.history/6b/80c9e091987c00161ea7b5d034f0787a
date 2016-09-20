@@ -1,0 +1,18 @@
+package Data_Structures;
+
+import java.util.HashSet;
+
+public class anagrams {
+
+	public static void main(String[] args) {
+		
+		String a = "patiiiiiiiiiraaaaaaaaammmm";
+		String b = "ramrampati";
+		HashSet<String> anagrama = new HashSet<>();
+		anagrama.add(a);
+		System.out.println(anagrama);
+		for (Character c : a.toCharArray()) {
+			anagrama.add(c.toString());
+		}
+	}
+}

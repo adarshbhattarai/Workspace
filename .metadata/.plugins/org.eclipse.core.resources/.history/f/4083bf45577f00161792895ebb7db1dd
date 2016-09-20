@@ -1,0 +1,27 @@
+package Data_Structures;
+
+import java.util.Deque;
+import java.util.Iterator;
+import java.util.LinkedList;
+
+public class dequeue {
+	public static void main(String[] args) {
+		Deque d = new LinkedList<>();
+		
+		d.add("First");
+		d.addFirst("patiram");
+		d.addLast("Python");
+		d.offer("laptop");
+		d.offerFirst("chasma");
+		d.offerLast("kattu");
+		d.push("pushed");
+		System.out.println(d + "\n");
+		
+		//Iterating
+		Iterator it = d.iterator();
+		while()
+		
+		
+	}
+
+}

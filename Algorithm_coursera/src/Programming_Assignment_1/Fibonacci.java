@@ -1,0 +1,26 @@
+package Programming_Assignment_1;
+
+import java.util.Scanner;
+
+public class Fibonacci {
+  private static long calc_fib(int n) {
+    if (n <= 1)
+      return n;
+    
+    int[] fibonacchi = new int[n+1];
+    fibonacchi[0] = 0;
+    fibonacchi[1]=1;
+    for(int i=2; i<=n; i++){
+    	fibonacchi[i] = fibonacchi[i-1] + fibonacchi[i-2];
+    }
+    
+    return fibonacchi[n]; 
+  }
+
+  public static void main(String args[]) {
+    Scanner in = new Scanner(System.in);
+    int n = in.nextInt();
+
+    System.out.println(calc_fib(n));
+  }
+}
