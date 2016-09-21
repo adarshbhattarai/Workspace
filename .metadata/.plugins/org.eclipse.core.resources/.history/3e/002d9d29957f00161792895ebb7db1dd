@@ -1,0 +1,10 @@
+package Saugat_Interview_Question;
+
+public class ComparetwoSentences {
+
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+
+	}
+
+}

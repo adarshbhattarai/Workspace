@@ -4,7 +4,6 @@ import java.util.Deque;
 import java.util.Iterator;
 import java.util.LinkedList;
 
-import org.omg.Messaging.SyncScopeHelper;
 
 public class dequeue {
 	public static void main(String[] args) {
