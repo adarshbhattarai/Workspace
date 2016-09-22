@@ -377,6 +377,7 @@ This warning can be switched off on the Team > Git > Confirmations and Warnings 
 
 !ENTRY org.eclipse.jdt.ui 2 0 2016-09-20 19:50:21.762
 !MESSAGE The 'org.eclipse.recommenders.completion.rcp.javaCompletionProposalComputer.intelligent' proposal computer from the 'org.eclipse.recommenders.completion.rcp' plug-in did not complete normally. The extension took too long to return from the 'computeCompletionProposals()' operation.
+<<<<<<< HEAD
 !SESSION 2016-09-21 15:49:39.468 -----------------------------------------------
 eclipse.buildId=4.6.0.I20160606-1100
 java.version=1.8.0_101
@@ -433,3 +434,15 @@ org.eclipse.recommenders.utils.Logs$LogTraceException
 	at org.eclipse.recommenders.internal.calls.rcp.RcpCallModelProvider.acquireModel(RcpCallModelProvider.java:1)
 	at org.eclipse.recommenders.internal.models.rcp.PrefetchModelArchiveJob.run(PrefetchModelArchiveJob.java:43)
 	at org.eclipse.core.internal.jobs.Worker.run(Worker.java:55)
+=======
+!SESSION 2016-09-21 01:26:13.130 -----------------------------------------------
+eclipse.buildId=4.6.0.I20160606-1100
+java.version=1.8.0_101
+java.vendor=Oracle Corporation
+BootLoader constants: OS=linux, ARCH=x86_64, WS=gtk, NL=en_US
+Framework arguments:  -product org.eclipse.epp.package.java.product
+Command-line arguments:  -os linux -ws gtk -arch x86_64 -product org.eclipse.epp.package.java.product
+
+!ENTRY org.eclipse.core.resources 2 10035 2016-09-21 01:27:02.197
+!MESSAGE The workspace exited with unsaved changes in the previous session; refreshing workspace to recover changes.
+>>>>>>> 7bb765398700b564840d15ece98ac50fb8ec5862
