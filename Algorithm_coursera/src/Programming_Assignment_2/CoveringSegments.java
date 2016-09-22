@@ -2,15 +2,39 @@ package Programming_Assignment_2;
 
 import java.util.*;
 
+import javax.swing.text.html.MinimalHTMLWriter;
+
 public class CoveringSegments {
 
     private static int[] optimalPoints(Segment[] segments) {
-        //write your code here
-        int[] points = new int[2 * segments.length];
+       
+    	ArrayList<Integer> array = new ArrayList<>(); 
+    	
+    	int[] points = new int[2 * segments.length];
         for (int i = 0; i < segments.length; i++) {
             points[2 * i] = segments[i].start;
             points[2 * i + 1] = segments[i].end;
         }
+        
+        
+        for(int i=1; i<points.length;i=i+2){
+        	int minimum = points[i];
+        	for(int j=i+2; j<points.length; j=j+2){
+        		if(points[j]<minimum){
+        			minimum = points[j];
+        			int tempa = points[j-1];
+        			int tempb = points[j];
+        			points[j-1] = points[i-1];
+        			points[j]= points[i];
+        			points[i-1]=tempa;
+        			points[i]=tempb;
+        			
+        		}
+        	}
+        }
+      
+     
+        
         return points;
     }
 
@@ -23,7 +47,7 @@ public class CoveringSegments {
         }
     }
     public static void main(String[] args) {
-        Scanner scanner = new Scanner(System.in);
+       Scanner scanner = new Scanner(System.in);
         int n = scanner.nextInt();
         Segment[] segments = new Segment[n];
         for (int i = 0; i < n; i++) {
@@ -37,6 +61,33 @@ public class CoveringSegments {
         for (int point : points) {
             System.out.print(point + " ");
         }
+        
+        
+    	/*int a=0;
+    	while(a<1){
+    		
+    		int n= (int) Math.floor(Math.random() * 10);
+    		System.out.println(n);
+    		Segment[] segments = new Segment[n];
+            for (int i = 0; i < n; i++) {
+             int start, end;
+             start = (int) Math.floor(Math.random() * 101);
+             end = (int) Math.floor(Math.random() * 101);
+            segments[i] = new Segment(start, end);
+            System.out.print(start + " " + end + " ");
+            System.out.println("");
+            }
+            int[] points = optimalPoints(segments);
+            System.out.println(points.length);
+            for (int point : points) {
+                System.out.print(point + " ");
+            }
+            a++;
+    		
+    	}*/
+    
+    	
+    	
     }
 }
  
