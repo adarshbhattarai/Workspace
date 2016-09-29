@@ -1,0 +1,76 @@
+package programming_Assignment5_Dynamic_Programming;
+
+import java.util.*;
+
+public class PrimitiveCalculator {
+    private static List<Integer> optimal_sequence(int n) {
+        List<Integer> sequence = new ArrayList<Integer>();
+        List<Integer> finalResult = new ArrayList<Integer>();
+        sequence.add(0);
+        sequence.add(1);
+        sequence.add(1);
+        sequence.add(1);
+        System.out.println("I values = ");
+      
+        int index=4;
+        
+        while (sequence.size() <= n) {
+        	int minValue = findMinumum(index,sequence);
+        	int val = minValue+1;
+			sequence.add(val);
+			index++;
+		}
+        
+        for(int i = 0 ; i< sequence.size() ; i++){
+        	System.out.print(sequence.get(i));
+        	System.out.print("    ");
+        	System.out.print(i);
+        	System.out.println("");
+          }
+        
+        
+       while (n >= 1) {
+            finalResult.add(n);
+            int currentVal = sequence.get(n);
+            if(n%3==0 && (sequence.get(n/3) +1) == currentVal ){ n= n/3;}
+            else if(n%3==0 && (sequence.get(n/3) +1) == currentVal ){ n= n/3;}
+            	
+        }
+        Collections.reverse(finalResult);
+        return sequence;
+    }
+
+    private static int findMinumum(int i, List<Integer> sequence) {
+		// TODO Auto-generated method stub
+    	int prev = sequence.get(i-1);
+    	
+    	if(i%3 != 0 && i%2 != 0 ){ return prev;}
+    	else if(i%3==0 && i%2 !=0) {
+    		if(sequence.get(i/3) > prev) return prev;
+    		return sequence.get(i/3);
+    	}
+    	else if(i%2 == 0 && i%3 != 0){
+    		if(sequence.get(i/2) > prev) return prev;
+    		return sequence.get(i/2);
+    	}
+    	else
+    	{
+    		if(prev< sequence.get(i/3) && prev <   sequence.get(i/2)) return prev;
+    		else if(sequence.get(i/3) < prev && sequence.get(i/3) < sequence.get(i/2)) return sequence.get(i/3);
+    	}
+    	
+    	
+		return sequence.get(i/2);
+	}
+
+	public static void main(String[] args) {
+        Scanner scanner = new Scanner(System.in);
+        int n = scanner.nextInt();
+        List<Integer> sequence = optimal_sequence(n);
+        System.out.println(sequence.size() - 1);
+        for (Integer x : sequence) {
+            System.out.print(x + " ");
+        }
+    }
+}
+
