@@ -1,0 +1,26 @@
+package sorts;
+
+import java.util.Scanner;
+
+import javax.swing.plaf.synth.SynthSpinnerUI;
+
+public class Merge_sort {
+	
+	
+	public static void main(String[] args) {
+		Scanner n = new Scanner(System.in);
+		int number = n.nextInt();
+		int [] array = new int[number];
+		for (int i = 0; i < number; i++) {
+			array[i] = (int) Math.ceil(Math.random()*100);
+		}
+		
+		System.out.println(mergeSort(array));
+	}
+
+	private static int[] mergeSort(int[] array) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+}

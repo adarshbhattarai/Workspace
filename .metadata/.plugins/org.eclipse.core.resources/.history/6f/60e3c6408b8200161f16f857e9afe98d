@@ -1,0 +1,15 @@
+package sorts;
+
+import java.util.Scanner;
+
+import javax.swing.plaf.synth.SynthSpinnerUI;
+
+public class Merge_sort {
+	
+	
+	public static void main(String[] args) {
+		Scanner n = new Scanner(System.in);
+		
+	}
+
+}

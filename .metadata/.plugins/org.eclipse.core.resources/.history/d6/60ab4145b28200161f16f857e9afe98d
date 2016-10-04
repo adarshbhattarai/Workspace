@@ -1,0 +1,98 @@
+package sorts;
+
+import java.util.Scanner;
+
+
+
+public class Merge_sort {
+	
+	
+	public static void main(String[] args) {
+		Scanner n = new Scanner(System.in);
+		int number = n.nextInt();
+		int [] array = new int[number];
+		for (int i = 0; i < number; i++) {
+			array[i] = (int) Math.floor(Math.random()*100);
+			System.out.print(array[i] + " ");
+		}
+		System.out.println(" ");
+		System.out.println(mergeSort(array));
+	}
+
+	private static int[] mergeSort(int[] array) {
+		// TODO Auto-generated method stub
+		if(array.length==1) return array;
+		int m = (int)Math.floor(array.length/2);
+		int [] b = new int[m];
+		int [] c = new int[array.length-m];
+		int [] resultArray = new int[array.length];
+		System.out.println("b");
+		for(int i=0; i<m ; i++){
+			b[i] = array[i];
+			System.out.print(b[i] + " " );
+		}
+		System.out.println("");
+		System.out.println("c");
+		for(int i=0;i< c.length; i++){
+			c[i] = array[m+ i];
+			
+			System.out.print(c[i]+" ");
+		}
+		
+		
+		
+		System.out.println("");
+		int[] first_array = mergeSort(b);
+		int[] second_array = mergeSort(c);
+		System.out.println("firstArray  = " + first_array[0]);
+		resultArray = Merge(first_array,second_array);
+		return resultArray;
+	}
+
+	private static int[] Merge(int[] a, int[] b) {
+		// TODO Auto-generated method stub
+		int [] d = new int[a.length + b.length];
+		System.out.println(d.length);
+		System.out.println("merge place = " + b[0]); 
+		int i= 0;
+		int j= 0;
+		int k=0;
+		while(i <= a.length-1 && j <= b.length-1){
+			int aFirstElement = a[i];
+			int bFirstElement = b[j];
+			if(aFirstElement<=bFirstElement) {
+			 if(k<= d.length-1)	d[k] = aFirstElement;
+				System.out.println(aFirstElement);
+				System.out.println("afirst");
+				//System.out.println(d[k]);
+				i++;
+			}
+			else{
+				if(k<= d.length-1)d[k] = bFirstElement;
+				System.out.println(aFirstElement);
+				System.out.println("bfirst");
+				//System.out.println(d[k]);
+				j++;
+			}
+			
+			if(i == a.length-1){
+				d[k] = bFirstElement;
+				j++;
+						
+			}
+			if(j==b.length-1){
+				d[k]=aFirstElement;
+				i++;
+			}
+			k++;
+			
+		}
+		System.out.println("d=");
+		for (int val : d) {
+			System.out.print(val + " ");
+		}
+		System.out.println("");
+		return d;
+	}
+
+}
