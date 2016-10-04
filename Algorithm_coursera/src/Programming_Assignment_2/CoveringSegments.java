@@ -2,12 +2,18 @@ package Programming_Assignment_2;
 
 import java.util.*;
 
+import javax.swing.text.html.MinimalHTMLWriter;
+
 public class CoveringSegments {
 
     private static int[] optimalPoints(Segment[] segments) {
        
+<<<<<<< HEAD
     	
     	HashSet<Integer> intersection = new HashSet<>();
+=======
+    	ArrayList<Integer> array = new ArrayList<>(); 
+>>>>>>> d7eb4f858f60203c82de84e3389c66ebf74988e1
     	
     	int[] points = new int[2 * segments.length];
         for (int i = 0; i < segments.length; i++) {
@@ -31,6 +37,7 @@ public class CoveringSegments {
         		}
         	}
         }
+<<<<<<< HEAD
         
        
         
@@ -58,6 +65,12 @@ public class CoveringSegments {
     	}
     	Arrays.sort(array);
         return array;
+=======
+      
+     
+        
+        return points;
+>>>>>>> d7eb4f858f60203c82de84e3389c66ebf74988e1
     }
 
     private static class Segment {
@@ -83,12 +96,21 @@ public class CoveringSegments {
         for (int point : points) {
             System.out.print(point + " ");
         }
+<<<<<<< HEAD
       /*
         
    	int a=0;
     	while(a<1){
     		Scanner scanner = new Scanner(System.in);
             int n = scanner.nextInt();
+=======
+        
+        
+    	/*int a=0;
+    	while(a<1){
+    		
+    		int n= (int) Math.floor(Math.random() * 10);
+>>>>>>> d7eb4f858f60203c82de84e3389c66ebf74988e1
     		System.out.println(n);
     		Segment[] segments = new Segment[n];
             for (int i = 0; i < n; i++) {
@@ -100,13 +122,24 @@ public class CoveringSegments {
             System.out.println("");
             }
             int[] points = optimalPoints(segments);
+<<<<<<< HEAD
             System.out.println( "\t" +points.length);
+=======
+            System.out.println(points.length);
+>>>>>>> d7eb4f858f60203c82de84e3389c66ebf74988e1
             for (int point : points) {
                 System.out.print(point + " ");
             }
             a++;
     		
+<<<<<<< HEAD
     	}
 */  	
+=======
+    	}*/
+    
+    	
+    	
+>>>>>>> d7eb4f858f60203c82de84e3389c66ebf74988e1
     }
 }

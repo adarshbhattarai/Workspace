@@ -1,0 +1,32 @@
+package Programming_Assignment_2;
+
+import java.util.*;
+
+public class LargestNumber {
+    private static String largestNumber(String[] a) {
+       
+        String result = "";
+        List<String> rslt = new ArrayList<>();
+        for (int i = 0; i < a.length; i++) {
+        	String firstchar = a[i].charAt(0);
+        	
+        	for(int j =i; j < a.length; j++){
+        		
+        		
+        	}
+            result += a[i];
+        }
+        return result;
+    }
+
+    public static void main(String[] args) {
+        Scanner scanner = new Scanner(System.in);
+        int n = scanner.nextInt();
+        String[] a = new String[n];
+        for (int i = 0; i < n; i++) {
+            a[i] = scanner.next();
+        }
+        System.out.println(largestNumber(a));
+    }
+}
+
