@@ -4,9 +4,9 @@ import java.util.*;
 
 public class Knapsack {
     static int optimalWeight(int W, int[] w) {
-      int[][] result = new int[w.length+1][W];
+      int[][] result = new int[w.length+1][W+1];
     	for(int i= 0 ; i < w.length+ 1; i++){
-    		for(int j=0; j < W; j++){
+    		for(int j=0; j < W+1; j++){
     			if(i == 0  || j == 0){
     				result[i][j] = 0;
     				
@@ -36,7 +36,7 @@ public class Knapsack {
 
     private static int maximum(int i, int j) {
 		// TODO Auto-generated method stub
-		return i>j? i : j;
+		return (i>j)? i : j;
 	}
 
 	public static void main(String[] args) {
@@ -48,6 +48,7 @@ public class Knapsack {
         for (int i = 0; i < n; i++) {
             w[i] = scanner.nextInt();
         }
+      
         System.out.println(optimalWeight(W, w));
     }
 }

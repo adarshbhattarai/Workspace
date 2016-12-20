@@ -1,0 +1,38 @@
+package CodeFights;
+
+public class remainingFib {
+
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+		System.out.println(remainFib("2012156"));
+
+	}
+
+	static String remainFib(String number) {
+		long fib1 = 0;
+		long fib2 = 1;
+		long fibn;
+	    boolean found = false;
+	    long k = 1;
+	    long num = 0;
+	    while(!found){       
+	        if(k<fib2){
+	            num++;
+	            k++;
+	        }
+	        else{
+	        fibn = fib1 + fib2;
+	        fib1 = fib2;
+	        fib2 = fibn;
+	            k= fib1 + 1;
+	        }
+	        if(num  == Long.parseLong(number)){
+	            found = true;
+	        }        
+	    }
+	    return String.valueOf(k-1);
+	    
+
+	}
+
+}
