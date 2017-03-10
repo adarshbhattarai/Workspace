@@ -1,0 +1,55 @@
+package programming_Assignment5_Dynamic_Programming;
+
+import java.util.*;
+
+public class Knapsack {
+    static int optimalWeight(int W, int[] w) {
+      int[][] result = new int[w.length+1][W];
+    	for(int i= 0 ; i < w.length+ 1; i++){
+    		for(int j=0; j < W; j++){
+    			if(i == 0  || j == 0){
+    				result[i][j] = 0;
+    				
+    			}
+    			
+    			else if(w[i-1] > j){
+    				result[i][j] = result[i-1][j];
+    			}
+    			
+    			else{
+    				result[i][j] = maximum(w[i-1]+result[i-1][j-w[i-1]],result[i-1][j]); 
+    			}
+    			System.out.print(result[i][j] + " ");
+    				
+    		}
+    		
+    		System.out.println();
+    	}
+        /*int result = 0;
+        for (int i = 0; i < w.length; i++) {
+          if (result + w[i] <= W) {
+            result += w[i];
+          }
+        }*/
+        return result[w.length][W-1];
+    }
+
+    private static int maximum(int i, int j) {
+		// TODO Auto-generated method stub
+		return i>j? i : j;
+	}
+
+	public static void main(String[] args) {
+        Scanner scanner = new Scanner(System.in);
+        int W, n;
+        W = scanner.nextInt();
+        n = scanner.nextInt();
+        int[] w = new int[n];
+        for (int i = 0; i < n; i++) {
+            w[i] = scanner.nextInt();
+        }
+        Arrays.sort(w);
+        System.out.println(optimalWeight(W, w));
+    }
+}
+

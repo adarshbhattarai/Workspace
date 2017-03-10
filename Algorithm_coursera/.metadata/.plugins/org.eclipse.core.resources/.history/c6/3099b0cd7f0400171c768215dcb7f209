@@ -1,0 +1,21 @@
+package backrock;
+
+public class Solution {
+
+	 static Long[] arbitrage(String[] quotes) {
+
+	        Long[] a = new Long[quotes.length-1];
+	        
+	        for(int i = 1; i< quotes.length;i++ ){
+	        	String[] b = quotes[i].split(" ");
+	        	Long f = new Long(b[0]);
+	        	Long s = new Long(b[1]);
+	        	Long t = new Long(b[2]);
+	        	Long result = ((10000/f)/s)/t;
+	        	if(result > 10000 ) a[i] = 10000-result;
+	        	else a[i] = new Long(0);
+	        }
+	        return a;
+	 
+	    }
+}

@@ -48,18 +48,12 @@ public class CodeFight {
 		 List<String> code = new ArrayList<>();
 		    for(int i = 1; i<= n ; i++){
 		    	
-		    	  if(i%35 == 0){
-		              code.add("CodeFight");
-		          }
-		          
-		          else if(i%5 == 0 ){
-		              code.add("Code");
-		          }
-		       
-		        else if(i%7 == 0 ){
-		            code.add("Fight");
-		        }
-		        
+		    	 if(i%35 == 0)	  code.add("CodeFight");
+		    	 
+		         else if(i%5 == 0)code.add("Code");
+		              
+		         else if(i%7 == 0)code.add("Fight");
+	    
 		         else code.add(String.valueOf(i));
 		    }
 		    String[] array = new String[code.size()];

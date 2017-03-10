@@ -1,0 +1,47 @@
+package running_a_shell_script;
+
+import java.io.BufferedReader;
+import java.io.InputStreamReader;
+
+public class hello {
+	public static void main(String[] args) {
+		
+	}
+	
+	 @Override
+	    public void run() {
+	        System.out.println("Running BaseCase through PuTTY with Test Case = " + testCase +" and  Eniv= " + baseCaseArguments[1] );
+	        //String command = "ping -n 3 " +  "google.com";
+	       // String command = ".\run_test.sh " + testCase;
+	       // String command = "pwd"; //".\\\\aaa.sh";
+
+	        String fs = System.getProperty("file.separator");
+	        String command = System.getenv("Users") + fs + "yxf642" + fs + "aaa.sh";
+	        String output = executeCommand(command);
+	        System.out.println(output);
+	    }
+
+	    private String executeCommand(String command) {
+
+	        StringBuffer output = new StringBuffer();
+
+	        Process p;
+	        try {
+	            p = Runtime.getRuntime().exec(command);
+	            p.waitFor();
+	            BufferedReader reader =
+	                    new BufferedReader(new InputStreamReader(p.getInputStream()));
+
+	            String line = "";
+	            while ((line = reader.readLine())!= null) {
+	                output.append(line + "\n");
+	            }
+
+	        } catch (Exception e) {
+	            e.printStackTrace();
+	        }
+
+	        return output.toString();
+	    }
+
+}

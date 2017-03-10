@@ -1,0 +1,115 @@
+package backrock;
+
+public class binarytree {
+
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+
+int arr[] = { 45, 25, 15, 10, 20, 30, 65, 55, 50, 60, 75, 80 };
+binarytree bst = new binarytree();
+
+Node root = null;
+// build tree by repeated insertions
+for( int i = 0; i < arr.length; i++ )
+root = bst.insertTree( root, arr[i]);
+Node root2 = root; // copy BST
+int key = 66;
+Node item = bst.search(root2, key);
+if( item != null )
+System.out.print("\n item found: " + item.data);
+else System.out.print("\n Node " + key + " not found");
+System.out.print("\n Number of leaf nodes: " + bst.leafNodes(root));
+System.out.print("\n Inorder: ");
+bst.inorder(root);
+System.out.print("\n Preorder: ");
+bst.preorder(root);
+System.out.print("\n Postorder: ");
+bst.postorder(root);
+bst.inorder(root);
+key = 44; // insert 44
+bst.insertTree(root, key);
+System.out.print("\n Inorder, after insertion of " + key + ": ");
+bst.inorder(root);
+System.out.println("\nMinimum Value in the tree: " + bst.Minimum(root2));
+System.out.println("Maximum Value in the tree : " + bst.Maximum(root2));
+}
+
+	private int Maximum(Node root2) {
+		// TODO Auto-generated method stub
+		Node p = root2;
+		
+		if(p.right==null) return p.data;
+		
+		return Maximum(root2.right);
+	}
+
+	private Object Minimum(Node root2) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	private void postorder(Node root) {
+		// TODO Auto-generated method stub
+		if(root!=null){
+		
+			preorder(root.left);
+			preorder(root.right);
+			System.out.print(root.data + " ");
+		}
+		
+	}
+
+	private void preorder(Node root) {
+		// TODO Auto-generated method stub
+		if(root!=null){
+			System.out.print(root.data + " ");
+			preorder(root.left);
+			preorder(root.right);
+		}
+		
+	}
+
+	private String leafNodes(Node root) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	private void inorder(Node root) {
+		// TODO Auto-generated method stub
+		if(root!=null){inorder(root.left);
+		System.out.print(root.data + " ");
+		inorder(root.right);
+		}
+	}
+
+	private Node search(Node root2, int key) {
+		// TODO Auto-generated method stub
+		Node p = root2;
+		while(p!=null){
+			if(key==p.data) return p;
+		
+		else if(key<p.data) p=p.left;
+		else p=p.right;
+		}
+		return null;
+	}
+
+	private Node insertTree(Node root, int i) {
+		// TODO Auto-generated method stub
+		if(root==null){
+			root = new Node(i);
+			return root;
+		}
+		
+		else if(i< root.data){
+				root.left = insertTree(root.left,i);
+			}
+		else{
+			root.right = insertTree(root.right,i);
+		}
+		
+		
+		return root;
+	}
+
+	}
